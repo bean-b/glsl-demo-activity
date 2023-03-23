@@ -19,6 +19,8 @@ layout (location = 2) in vec2 vertex_texcoord;
 // Normal of the current point on the surface, interpolated across the surface.
 out vec3 interpSurfNormal;
 
+
+out vec2 interpTexCoord;
 //TODO: Make an output variable to output the texture coordinate
 
 
@@ -30,6 +32,7 @@ void main(void)
     // it turns out you have to use a slightly different matrix for normals because they transform a
     // bit differently than points.
     interpSurfNormal = vec3(normalMatrix * vec4(vertex_normal, 0.0));
+    interpTexCoord = vertex_texcoord;
     
     
     //TODO: output the texture coordinate to the fragment shader

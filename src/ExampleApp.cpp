@@ -84,7 +84,7 @@ void ExampleApp::onRenderGraphicsContext(const VRGraphicsState &renderState) {
         
         _tex = Texture::create2DTextureFromFile("tex.jpg");
         
-        
+        reloadShaders();
     }
 }
 
@@ -115,6 +115,8 @@ void ExampleApp::onRenderGraphicsScene(const VRGraphicsState &renderState) {
     
     //TODO: Bind texture
     
+    _tex->bind(0);
+    _shader.setUniform("colorSampler", 0);
     
     
     
